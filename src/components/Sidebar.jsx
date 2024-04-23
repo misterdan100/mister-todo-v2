@@ -14,10 +14,10 @@ const Sidebar = () => {
 
       <div className="links">
         <Link to="/">Home</Link>
-        <Link to="/">Tasks</Link>
-        <Link to="/">Projects</Link>
-        <Link to="/">Lists</Link>
-        <Link to="/">Important</Link>
+        <Link to="/tasks">Tasks</Link>
+        <Link to="/projects">Projects</Link>
+        <Link to="/lists">Lists</Link>
+        <Link to="/important">Important</Link>
       </div>
     </>
   );
