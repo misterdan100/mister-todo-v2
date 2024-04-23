@@ -1,0 +1,18 @@
+button {
+    font-size: var(--font-md);
+    background-color: var(--second-color);
+    color: var(--white);
+    padding: .8rem 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: var(--button-radious);
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: var(--second-color-light);
+    color: var(--black);
+    border: var(--button-border) var(--second-color);
+    box-shadow: var(--button-shadow);
+}

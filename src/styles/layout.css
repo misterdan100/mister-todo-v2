@@ -1,0 +1,21 @@
+.main-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #d0d0d0;;
+}
+
+.sidebar-container {
+    background-color: var(--white);
+    width: 30%;
+    box-shadow: var(--panel-shadow);
+    z-index: 1;
+    padding: 3rem 2rem;
+    /* padding-left: 3rem; */
+}
+
+.main-div {
+    background-color: var(--gray-light);
+    flex: 1 1 0;
+    padding: 3rem;
+}

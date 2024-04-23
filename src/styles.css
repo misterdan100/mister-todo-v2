@@ -1,0 +1,48 @@
+:root {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Light styles */
+    --primary-color: #5F33E1;
+    --primary-color-light: #EEE9FF;
+    --second-color: #0087FF;
+    --second-color-light: #E7F3FF;
+    --pink-color: #F478B8;
+    --pink-color-light: #FFE4F2;
+    --yellow-color: #FFD12E;
+    --yellow-color-light: #FFF6D4;
+    --black: #181818;
+    --white: #fafafa;
+    --gray-light: #F6F8FA;
+    --gray-dark: #747474;
+
+    /* shapes */
+    --button-radious: 8px;
+    --panel-radious: 14px;
+    --button-shadow: 0 0 10px rgba(0,0,0,0.2);
+    --panel-shadow: 0 0 30px rgba(0,0,0,0.1);
+    --button-border: 2px solid;
+    --font-xl: 24px;
+    --font-lg: 18px;
+    --font-md: 16px;
+    --font-sm: 8px;
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+}
