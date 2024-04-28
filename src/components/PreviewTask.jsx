@@ -5,7 +5,7 @@ import UncheckedIcon from "./UncheckedIcon";
 import "../styles/previewTask.css";
 
 const PreviewTask = ({task}) => {
-  const { isOpen, setIsOpen } = useTasks()
+  const { isOpen, setIsOpen, selectTask, setSelectTask } = useTasks()
   const { name } = task;
 
   

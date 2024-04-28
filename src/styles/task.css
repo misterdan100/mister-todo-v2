@@ -8,11 +8,17 @@
 
 .task-filters {
     display: flex;
-    gap: 1rem;
-    justify-content: end;
+    
+    justify-content: space-between;
     /* background: var(--white); */
     border-radius: var(--panel-radious);
     margin-bottom: 1rem;
+}
+
+.tasks-container .filter-buttons {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
 }
 
 .tag-filter {
@@ -29,6 +35,20 @@
 .tag-filter:hover {
     color: var(--black);
     box-shadow: var(--button-shadow);
+}
+
+.tasks-container .create-button {
+    background: var(--second-color);
+    color: var(--white);
+    border: 1px solid transparent;
+    display: flex;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    transition: all 0.3s;
+}
+
+.tasks-container .create-button:hover {
+    transform: scale(1.05);
 }
 
 .tag-filter.selected {

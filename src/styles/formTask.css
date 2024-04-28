@@ -1,0 +1,120 @@
+.form-task {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-task input,
+.form-task select,
+.form-task textarea {
+    background: var(--gray-light);
+    padding: .3rem .6rem;
+    border-radius: var(--button-radious);
+}
+
+
+.form-task label {
+    font-weight: bold;
+}
+
+.form-task div {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.form-task .div-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.form-task .div-title input {
+    font-size: var(--font-xxl);
+    font-weight: 900;
+    background: unset;
+    padding-left: 0;
+}
+
+.form-task .div-title input:focus {
+    outline: none;
+    background: #fafafa;
+    border-radius: var(--button-radious);
+}
+
+.form-task .favorite-icon {
+    color: var(--gray-dark);
+}
+
+.form-task .favorite-icon.selected {
+    color: var(--yellow-color);
+}
+
+.form-task .tag-list1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .3rem;
+}
+
+.form-task .tag-list1 p {
+   background: var(--gray-dark2);
+   padding: .1rem .5rem;
+   border-radius: var(--button-radious);
+   cursor: default;
+   transition: all 0.3s;
+}
+
+.form-task .tag-list1 p:hover {
+    background: #e0e0e0;
+}
+
+.form-task .add-task {
+    display: flex;
+    flex-direction: row;
+    margin-top: .4rem;
+}
+
+.form-task .add-task input {
+    flex: 1;
+}
+
+.form-task .add-task button {
+    background: var(--second-color);
+    padding: .3rem .8rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: var(--button-radious);
+    border: 2px solid var(--second-color);
+    color: var(--white);
+    transition: all 0.3s;
+}
+
+.form-task .add-task button:hover {
+    cursor: pointer;
+    background: #2a9cff;
+}
+
+
+
+
+.form-task .save-button {
+    background: var(--second-color-light);
+    padding: .3rem .8rem;
+    margin-top: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: var(--button-radious);
+    border: 2px solid var(--second-color);
+    color: var(--second-color);
+    transition: all 0.3s;
+}
+
+.form-task .save-button:hover {
+    background: #cde6ff;
+}
+

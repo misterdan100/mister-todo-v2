@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import useTasks from '../hooks/useTasks';
+import FormTask from './FormTask';
 
 
 function ModalTask({props}) {
@@ -58,10 +59,12 @@ function ModalTask({props}) {
 
 
                             <div className="sm:flex sm:items-start">
-                                <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                                <div className="mt-3 text-center sm:mt-0 sm:ml-0 sm:text-left w-full">
                                     <Dialog.Title as="h3" className="text-lg leading-6 font-bold text-gray-900">
                                         
+                                        Create New Task
                                     </Dialog.Title>
+                                    <FormTask />
 
                                 </div>
                             </div>

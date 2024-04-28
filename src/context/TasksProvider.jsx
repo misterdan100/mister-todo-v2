@@ -6,15 +6,15 @@ const TasksContext = createContext()
 const TasksProvider = ({children}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [tasks, setTasks] = useState([])
+  const [selectTask, setSelectTask] = useState({})
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
     const getData = async () => {
-
-
         try {
             // localStorage.setItem('misterTodo', JSON.stringify(tasksDb))
 
-            const data = JSON.parse(localStorage.getItem('misterTodo'))
+            const data = await JSON.parse(localStorage.getItem('misterTodo'))
             setTasks(data)
 
         } catch (error) {
@@ -25,13 +25,31 @@ const TasksProvider = ({children}) => {
     getData()
   }, [])
 
+  const getCategories = () => {
+    const newCategories = tasks.reduce( (sumary, current) => {
+        sumary.push(current.projectCategory)
+        return sumary
+    }, [])
+
+    setCategories(newCategories)
+}
+
+  const createTask = () => {
+    console.log(categories)
+  }
+
   return (
     <TasksContext.Provider 
         value={{
             tasks,
             setTasks,
             isOpen,
-            setIsOpen
+            setIsOpen,
+            selectTask,
+            setSelectTask,
+            createTask,
+            categories,
+            getCategories
         }}
     >
         {children}
