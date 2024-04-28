@@ -10,7 +10,7 @@ const Navbar = () => {
         <input 
         className='nav-input'
         type="text" 
-        placeholder='search todos...'
+        placeholder='Search todos...'
         />
 
         <div className='nav-user'>

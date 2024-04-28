@@ -1,0 +1,42 @@
+.tasks-container {
+    padding: 2rem;
+}
+
+.tasks-container {
+    width: 100%;
+}
+
+.task-filters {
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+    /* background: var(--white); */
+    border-radius: var(--panel-radious);
+    margin-bottom: 1rem;
+}
+
+.tag-filter {
+    padding: .3rem 1.5rem;
+    background: var(--white);
+    border-radius: var(--button-radious);
+    border: 1px solid var(--gray-dark);
+    font-weight: bold;
+    color: var(--gray-dark);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tag-filter:hover {
+    color: var(--black);
+    box-shadow: var(--button-shadow);
+}
+
+.tag-filter.selected {
+    background: var(--gray-light);
+}
+
+.preview-task-container {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}

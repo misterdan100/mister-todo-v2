@@ -1,5 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Inter", sans-serif;
     /* Light styles */
     --primary-color: #5F33E1;
     --primary-color-light: #EEE9FF;
@@ -7,23 +11,30 @@
     --second-color-light: #E7F3FF;
     --pink-color: #F478B8;
     --pink-color-light: #FFE4F2;
-    --yellow-color: #FFD12E;
-    --yellow-color-light: #FFF6D4;
+    --yellow-color: #FFB240;
+    --yellow-color-light: #FFF7EC;
+    --orange-color: #ffa500;
+    --orange-color-light: #FFF6D4;
+    --red-color: #D20A0A;
+    --red-color-light: #F7E2ED;
+    --green-color: #37833B;
+    --green-color-light: #ECF7ED;
     --black: #181818;
     --white: #fafafa;
-    --gray-light: #F6F8FA;
+    --gray-light: #F0F3F6;
+    --gray-dark2: #cccccc;
     --gray-dark: #747474;
 
     /* shapes */
     --button-radious: 8px;
     --panel-radious: 14px;
-    --button-shadow: 0 0 10px rgba(0,0,0,0.2);
+    --button-shadow: 0 0 10px rgba(0,0,0,0.1);
     --panel-shadow: 0 0 30px rgba(0,0,0,0.1);
     --button-border: 2px solid;
     --font-xl: 24px;
     --font-lg: 18px;
     --font-md: 16px;
-    --font-sm: 8px;
+    --font-sm: 14px;
 
 
 }

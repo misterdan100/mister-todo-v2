@@ -1,0 +1,106 @@
+.preview-task {
+    background: var(--white);
+    border-radius: var(--panel-radious);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+    border: 1px solid var(--gray-dark2);
+    transition: all 0.3s;
+}
+
+
+.preview-task:hover {
+    box-shadow: var(--panel-shadow);
+    border: 1px solid var(--second-color);
+    transform: scale(1.02);
+}
+
+.preview-task .preview-1 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.preview-task .icon {
+    color: var(--gray-dark2);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.preview-task .icon:hover {
+    color: var(--gray-dark);
+}
+
+.preview-task .title-task {
+    font-size: var(--font-lg);
+    color: var(--black);
+}
+
+.preview-task .task-info {
+    display: flex;
+    gap: 1rem;
+    font-size: var(--font-sm);
+}
+
+.preview-task .task-date {
+    font-style: italic;
+    color: var(--gray-dark);
+}
+
+.preview-task .task-date:hover {
+    color: var(--black);
+}
+
+.preview-task .task-info span {
+    font-weight: bold;
+}
+
+.preview-task .task-info span.alta {
+    color: var(--red-color);
+}
+
+.preview-task .task-info span.media {
+    color: var(--orange-color);
+}
+
+.preview-task .task-info span.baja {
+    color: --green-color;
+}
+
+.preview-task .buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.preview-task button {
+    font-weight: bold;
+    border: 1px solid var(--orange-color);
+    background: var(--orange-color-light);
+    border-radius: var(--button-radious);
+    padding: .4rem 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--black);
+    transition: all .3s;
+}
+
+.preview-task button:hover {
+    box-shadow: var(--button-shadow);
+    background: #ffeeb1;
+}
+
+.preview-task button.delete-button {
+    border: 1px solid var(--red-color);
+    background: var(--red-color-light);
+    color: var(--red-color);
+}
+
+.preview-task button.delete-button:hover {
+    box-shadow: var(--button-shadow);
+    background: #fabddd;
+}
+
+/* FIX OTHER BUTTON STYLESS */
