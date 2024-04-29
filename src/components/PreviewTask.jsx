@@ -1,12 +1,12 @@
 import { useState } from "react";
 import useTasks from "../hooks/useTasks";
-import CheckCircle from "./CheckCircle";
-import UncheckedIcon from "./UncheckedIcon";
+import CheckCircle from "../assets/CheckCircle";
+import UncheckedIcon from "../assets/UncheckedIcon";
 import "../styles/previewTask.css";
 
 const PreviewTask = ({task}) => {
   const { isOpen, setIsOpen, selectTask, setSelectTask } = useTasks()
-  const { name } = task;
+  const { name, priority } = task;
 
   
   return (
@@ -22,7 +22,7 @@ const PreviewTask = ({task}) => {
 
           <div className="task-info">
             <p className="task-date">27/04/2024</p>
-            <p>Prioridad: <span className="alta">Alta</span></p>
+            <p>Priority: <span className={priority}>{priority}</span></p>
           </div>
         </div>
       </div>

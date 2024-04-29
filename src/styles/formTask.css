@@ -45,11 +45,83 @@
 }
 
 .form-task .favorite-icon {
+    width: 35px;
+    height: 35px;
     color: var(--gray-dark);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.form-task .favorite-icon:hover {
+    transform: scale(1.10) rotate(72deg);
 }
 
 .form-task .favorite-icon.selected {
     color: var(--yellow-color);
+}
+
+.form-task .radio-priority {
+    display: flex;
+    flex-direction: row;
+    gap: .8rem;
+}
+
+.form-task .radio-priority input {
+    display: none;
+}
+
+.form-task .radio-priority .radio-label {
+    font-weight: 400;
+    background: #f1f1f1;
+   padding: .1rem 1rem;
+   border: 2px solid transparent;
+   border-radius: var(--button-radious);
+   cursor: pointer;
+   transition: all 0.3s;
+   display: flex;
+   align-items: center;
+}
+
+.form-task .radio-priority .radio-label:hover {
+    background: #e7e7e7; 
+}
+
+
+
+.form-task .radio-priority .radio-label.checked[for="low"] {
+    border: 2px solid var(--gray-dark);
+    background: var(--gray-light);
+    color: var(--black);
+    font-weight: bold;
+}
+.form-task .radio-priority .radio-label.checked[for="medium"] {
+    border: 2px solid var(--orange-color);
+    color: var(--orange-color);
+    background: var(--orange-color-light);
+    font-weight: bold;
+}
+.form-task .radio-priority .radio-label.checked[for="high"] {
+    border: 2px solid var(--red-color);
+    background: var(--red-color-light);
+    color: var(--red-color);
+    font-weight: bold;
+}
+
+.form-task .radio-priority .radio-label.checked[for="not started"] {
+    border: 2px solid var(--gray-dark);
+    background: var(--gray-light);
+    font-weight: bold;
+    color: var(--black);
+}
+
+.form-task .radio-priority .radio-label.checked[for="in progress"] {
+    border: 2px solid var(--second-color);
+    background: var(--second-color-light);;
+}
+
+.form-task .radio-priority .radio-label.checked[for="done"] {
+    border: 2px solid var(--green-color);
+    background: var(--green-color-light);;
 }
 
 .form-task .tag-list1 {
@@ -60,10 +132,13 @@
 }
 
 .form-task .tag-list1 p {
-   background: var(--gray-dark2);
-   padding: .1rem .5rem;
+   background: var(--gray-light);
+   padding: .1rem .7rem;
    border-radius: var(--button-radious);
+   border: 1px solid var(--gray-dark2);
    cursor: default;
+   text-transform: capitalize;
+
    transition: all 0.3s;
 }
 
@@ -74,10 +149,13 @@
 .form-task .add-task {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin-top: .4rem;
 }
 
 .form-task .add-task input {
+    width: 100%;
+    min-width: 330px;
     flex: 1;
 }
 
@@ -104,7 +182,7 @@
 .form-task .save-button {
     background: var(--second-color-light);
     padding: .3rem .8rem;
-    margin-top: 2rem;
+    margin-top: .5rem;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;

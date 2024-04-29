@@ -1,0 +1,12 @@
+.alert {
+    background: var(--green-color-light);
+    border: 1px solid var(--green-color);
+    border-radius: var(--button-radious);
+    padding: .3rem .8rem;
+    text-align: center;
+}
+
+.alert.alert-error {
+    background: var(--red-color-light);
+    border: 1px solid var(--red-color);
+}

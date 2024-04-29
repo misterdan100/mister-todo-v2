@@ -8,6 +8,7 @@ const TasksProvider = ({children}) => {
   const [tasks, setTasks] = useState([])
   const [selectTask, setSelectTask] = useState({})
   const [categories, setCategories] = useState([])
+  const [alert, setAlert] = useState({})
 
   useEffect(() => {
     const getData = async () => {
@@ -34,8 +35,8 @@ const TasksProvider = ({children}) => {
     setCategories(newCategories)
 }
 
-  const createTask = () => {
-    console.log(categories)
+  const createTask = task => {
+    setTasks([task, ...tasks])
   }
 
   return (
@@ -49,7 +50,9 @@ const TasksProvider = ({children}) => {
             setSelectTask,
             createTask,
             categories,
-            getCategories
+            getCategories,
+            alert,
+            setAlert
         }}
     >
         {children}

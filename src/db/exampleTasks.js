@@ -7,7 +7,7 @@ const tasks = [
       priority: "high",
       projectCategory: "Tareas domésticas",
       tags: ["hogar", "limpieza"],
-      important: true
+      favorite: true
     },
     {
       name: "Comprar comestibles",
@@ -17,7 +17,7 @@ const tasks = [
       priority: "medium",
       projectCategory: "Compras",
       tags: ["comida", "hogar"],
-      important: false
+      favorite: false
     },
     {
       name: "Enviar informe de ventas",
@@ -27,7 +27,7 @@ const tasks = [
       priority: "high",
       projectCategory: "Trabajo",
       tags: ["oficina", "ventas"],
-      important: true
+      favorite: true
     },
     {
       name: "Arreglar el jardín",
@@ -37,7 +37,7 @@ const tasks = [
       priority: "low",
       projectCategory: "Tareas domésticas",
       tags: ["hogar", "jardín"],
-      important: false
+      favorite: false
     },
     {
       name: "Estudiar para el examen",
@@ -47,7 +47,7 @@ const tasks = [
       priority: "high",
       projectCategory: "Educación",
       tags: ["estudios", "examen"],
-      important: false
+      favorite: false
     },
     {
       name: "Planificar las vacaciones",
@@ -57,7 +57,7 @@ const tasks = [
       priority: "medium",
       projectCategory: "Viajes",
       tags: ["vacaciones", "aventura"],
-      important: true
+      favorite: true
     },
     {
       name: "Leer un libro",
@@ -67,7 +67,7 @@ const tasks = [
       priority: "low",
       projectCategory: "Ocio",
       tags: ["lectura", "fantasía"],
-      important: false
+      favorite: false
     },
     {
       name: "Hacer ejercicio",
@@ -77,7 +77,7 @@ const tasks = [
       priority: "medium",
       projectCategory: "Salud y bienestar",
       tags: ["fitness", "ejercicio"],
-      important: true
+      favorite: true
     },
     {
       name: "Organizar una fiesta",
@@ -87,7 +87,7 @@ const tasks = [
       priority: "medium",
       projectCategory: "Eventos",
       tags: ["celebración", "social"],
-      important: false
+      favorite: false
     },
     {
       name: "Aprender un nuevo idioma",
@@ -97,7 +97,7 @@ const tasks = [
       priority: "high",
       projectCategory: "Educación",
       tags: ["idiomas", "aprendizaje"],
-      important: true
+      favorite: true
     }
   ];
 

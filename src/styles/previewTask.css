@@ -56,17 +56,18 @@
 
 .preview-task .task-info span {
     font-weight: bold;
+    text-transform: capitalize;
 }
 
-.preview-task .task-info span.alta {
+.preview-task .task-info span.high {
     color: var(--red-color);
 }
 
-.preview-task .task-info span.media {
+.preview-task .task-info span.medium {
     color: var(--orange-color);
 }
 
-.preview-task .task-info span.baja {
+.preview-task .task-info span.low {
     color: --green-color;
 }
 
