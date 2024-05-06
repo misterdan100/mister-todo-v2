@@ -5,7 +5,7 @@ import UncheckedIcon from "../assets/UncheckedIcon";
 import "../styles/previewTask.css";
 
 const PreviewTask = ({task}) => {
-  const { isOpen, setIsOpen, selectTask, setSelectTask } = useTasks()
+  const { isOpen, setIsOpen, selectTask, setSelectTask, handleCheck } = useTasks()
   const { name, priority } = task;
 
   
@@ -13,8 +13,12 @@ const PreviewTask = ({task}) => {
     <div className="preview-task">
       <div className="preview-1">
 
-        <div className="icon">
-          <UncheckedIcon />
+        <div 
+          onClick={() => handleCheck(task)}
+          className={`icon ${task.status === 'in progress' ? 'icon-progress' : ''} ${task.status === 'done' ? 'icon-done' : ''}`}
+        >
+          {task.status === 'done' ? (<CheckCircle />) : (<UncheckedIcon />)}
+          
         </div>
           
         <div className="">

@@ -30,8 +30,21 @@
     transition: all 0.3s;
 }
 
+.preview-task .icon.icon-done svg {
+    width: 27px;
+    height: 27px;
+}
+
 .preview-task .icon:hover {
     color: var(--gray-dark);
+}
+
+.preview-task .icon.icon-done {
+    color: var(--green-color);
+}
+
+.preview-task .icon.icon-progress {
+    color: var(--second-color);
 }
 
 .preview-task .title-task {

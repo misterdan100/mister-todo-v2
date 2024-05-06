@@ -39,6 +39,10 @@ const TasksProvider = ({children}) => {
     getData()
   }, [])
 
+  const saveStorage = () => {
+    localStorage.setItem('misterTodo', JSON.stringify(tasks))
+  }
+
   const getCategories = () => {
     const newCategories = tasks.reduce( (sumary, current) => {
         sumary.push(current.projectCategory)
@@ -59,6 +63,21 @@ const TasksProvider = ({children}) => {
     }
   }
 
+  const handleCheck = task => {
+    const updatedTasks = tasks.map( taskState => {
+      if(taskState.name === task.name) {
+        taskState.status === 'not started' | taskState.status === 'in progress' ? taskState.status = 'done' : taskState.status = 'not started'
+        return taskState
+      }
+      return taskState
+    })
+
+    setTasks(updatedTasks)
+    saveStorage()
+  }
+
+  
+
   return (
     <TasksContext.Provider 
         value={{
@@ -73,7 +92,8 @@ const TasksProvider = ({children}) => {
             getCategories,
             alert,
             setAlert,
-            loadDb
+            loadDb,
+            handleCheck
         }}
     >
         {children}
