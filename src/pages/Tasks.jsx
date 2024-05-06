@@ -29,7 +29,7 @@ const Tasks = () => {
       </div>
 
       <div className="preview-task-container">
-        {tasks.map((task, index) => (
+        {tasks?.map((task, index) => (
           <PreviewTask key={index} task={task}/>
         ))}
       </div>

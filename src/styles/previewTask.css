@@ -77,12 +77,12 @@
 }
 
 .preview-task button {
-    font-weight: bold;
+    /* font-weight: bold; */
     border: 1px solid var(--orange-color);
     background: var(--orange-color-light);
     border-radius: var(--button-radious);
-    padding: .4rem 1rem;
-    text-transform: uppercase;
+    padding: .3rem 1rem;
+    /* text-transform: uppercase; */
     cursor: pointer;
     color: var(--black);
     transition: all .3s;

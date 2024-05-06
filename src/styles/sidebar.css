@@ -34,3 +34,17 @@
     text-decoration: underline;
     transform: scale(1.05);
 }
+
+.import-btn {
+    background: var(--second-color-light);
+    color: var(--second-color);
+    border: 1px solid var(--second-color);
+    border-radius: var(--button-radious);
+    padding: .2rem .5rem;
+    opacity: 50%;
+    transition: all 0.3s;
+}
+
+.import-btn:hover {
+    opacity: 100%;
+}

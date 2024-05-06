@@ -8,16 +8,21 @@
 
 .task-filters {
     display: flex;
-    
+    flex-wrap: wrap;
     justify-content: space-between;
-    /* background: var(--white); */
+    gap: 1rem;
     border-radius: var(--panel-radious);
     margin-bottom: 1rem;
+}
+
+.task-filters .create-button {
+    height: 35px;
 }
 
 .tasks-container .filter-buttons {
     display: flex;
     justify-content: end;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -26,7 +31,7 @@
     background: var(--white);
     border-radius: var(--button-radious);
     border: 1px solid var(--gray-dark);
-    font-weight: bold;
+    /* font-weight: bold; */
     color: var(--gray-dark);
     cursor: pointer;
     transition: all 0.3s;

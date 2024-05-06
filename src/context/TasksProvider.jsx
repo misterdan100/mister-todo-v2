@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react"
-// import tasksDb from '../db/exampleTasks'
+import tasksDb from '../db/exampleTasks.js'
 
 const TasksContext = createContext()
 
@@ -13,9 +13,22 @@ const TasksProvider = ({children}) => {
   useEffect(() => {
     const getData = async () => {
         try {
-            // localStorage.setItem('misterTodo', JSON.stringify(tasksDb))
-
             const data = await JSON.parse(localStorage.getItem('misterTodo'))
+
+            if(!data?.length) {
+              const message = 'There are no saved tasks, do you want to load sample tasks?'
+              setTimeout(() => {
+                if(confirm(message)){
+                  setTasks(tasksDb)
+  
+                  localStorage.setItem('misterTodo', JSON.stringify(tasksDb))
+                  return
+                }
+                
+              }, 3000);
+              return
+            }
+
             setTasks(data)
 
         } catch (error) {
@@ -39,6 +52,13 @@ const TasksProvider = ({children}) => {
     setTasks([task, ...tasks])
   }
 
+  const loadDb = () => {
+    if(confirm('Do you want to upload sample data?')) {
+      setTasks(tasksDb)
+      localStorage.setItem('misterTodo', JSON.stringify(tasksDb))
+    }
+  }
+
   return (
     <TasksContext.Provider 
         value={{
@@ -52,7 +72,8 @@ const TasksProvider = ({children}) => {
             categories,
             getCategories,
             alert,
-            setAlert
+            setAlert,
+            loadDb
         }}
     >
         {children}

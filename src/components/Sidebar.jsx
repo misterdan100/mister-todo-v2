@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "../styles/sidebar.css";
+import useTasks from "../hooks/useTasks";
 
 const Sidebar = () => {
+  const { loadDb } = useTasks()
+
   return (
     <>
       <div className="logo">
@@ -18,6 +21,10 @@ const Sidebar = () => {
         <Link to="/projects">Projects</Link>
         <Link to="/lists">Lists</Link>
         <Link to="/important">Important</Link>
+        <button 
+          onClick={loadDb}
+          className="import-btn"
+        >Import db</button>
       </div>
     </>
   );
