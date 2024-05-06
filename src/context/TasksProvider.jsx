@@ -39,9 +39,9 @@ const TasksProvider = ({children}) => {
     getData()
   }, [])
 
-  const saveStorage = () => {
+  useEffect(() => {
     localStorage.setItem('misterTodo', JSON.stringify(tasks))
-  }
+  }, [tasks])
 
   const getCategories = () => {
     const newCategories = tasks.reduce( (sumary, current) => {
@@ -73,9 +73,12 @@ const TasksProvider = ({children}) => {
     })
 
     setTasks(updatedTasks)
-    saveStorage()
   }
 
+  const handleDelete = task => {
+    const updatedTasks = tasks.filter(taskState => taskState.name !== task.name && taskState )
+    setTasks(updatedTasks)
+  }
   
 
   return (
@@ -93,7 +96,8 @@ const TasksProvider = ({children}) => {
             alert,
             setAlert,
             loadDb,
-            handleCheck
+            handleCheck,
+            handleDelete
         }}
     >
         {children}

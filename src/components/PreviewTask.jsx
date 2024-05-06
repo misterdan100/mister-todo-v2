@@ -5,7 +5,7 @@ import UncheckedIcon from "../assets/UncheckedIcon";
 import "../styles/previewTask.css";
 
 const PreviewTask = ({task}) => {
-  const { isOpen, setIsOpen, selectTask, setSelectTask, handleCheck } = useTasks()
+  const { isOpen, setIsOpen, selectTask, setSelectTask, handleCheck, handleDelete } = useTasks()
   const { name, priority } = task;
 
   
@@ -37,7 +37,7 @@ const PreviewTask = ({task}) => {
           className="edit-button"
         >Edit</button>
         <button 
-          onClick={() => setIsOpen(true)}
+          onClick={() => handleDelete(task)}
           className="delete-button"
         >Delete</button>
       </div>
