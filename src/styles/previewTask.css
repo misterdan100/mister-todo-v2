@@ -52,6 +52,14 @@
     color: var(--black);
 }
 
+.preview-task .title-task span svg {
+    display: inline-block;
+    color: var(--orange-color);
+    width: 20px;
+    height: 20px;
+
+}
+
 .preview-task .task-info {
     display: flex;
     gap: 1rem;
