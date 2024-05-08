@@ -6,7 +6,7 @@ import "../styles/previewTask.css";
 import { formatDate } from "../helpers/formatDate.js";
 
 const PreviewTask = ({task}) => {
-  const { isOpen, setIsOpen, selectTask, setSelectTask, handleCheck, handleDelete, handleEdit } = useTasks()
+  const { handleCheck, handleDelete, handleEdit } = useTasks()
   const { name, priority, dueDate } = task;
   
   return (

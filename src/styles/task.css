@@ -58,6 +58,7 @@
 
 .tag-filter.selected {
     background: var(--gray-light);
+    font-weight: bold;
 }
 
 .preview-task-container {

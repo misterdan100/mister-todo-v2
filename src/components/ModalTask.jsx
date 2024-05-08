@@ -6,9 +6,9 @@ import FormTask from './FormTask';
 
 function ModalTask({props}) {
 
-    const { isOpen, setIsOpen } = useTasks()
+    const { isOpen, setIsOpen, editing } = useTasks()
     
- 
+
     return (
         <Transition.Root show={ isOpen } as={Fragment}>
             <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" onClose={ () => setIsOpen(false) }>
@@ -61,8 +61,8 @@ function ModalTask({props}) {
                             <div className="sm:flex sm:items-start">
                                 <div className="mt-3 text-center sm:mt-0 sm:ml-0 sm:text-left w-full">
                                     <Dialog.Title as="h3" className="text-lg leading-6 font-bold text-gray-900">
+                                        {editing ? 'Edit task' : 'Create New Task'}
                                         
-                                        Create New Task
                                     </Dialog.Title>
                                     <FormTask />
 

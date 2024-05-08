@@ -9,6 +9,7 @@ const TasksProvider = ({children}) => {
   const [tasks, setTasks] = useState([])
   const [categories, setCategories] = useState([])
   const [alert, setAlert] = useState({})
+  const [filter, setFilter] = useState('')
   const [filteredTasks, setFilteredTasks] = useState([])
   const [editing, setEditing] = useState(false)
 
@@ -91,15 +92,57 @@ const TasksProvider = ({children}) => {
     setSelectTask(task)
     setEditing(true)
     setIsOpen(true)
-  }
 
+  }
+  
   const editTask = task => {
     
     const updatedTasks = tasks.map( taskState => taskState.id === task.id ? task : taskState)
     setTasks(updatedTasks)
-
+    
     setEditing(false)
     setIsOpen(false)
+  }
+
+  const handleFilter = newFilter => {
+    console.log(newFilter)
+    let tempFilter = ''
+    newFilter === filter ? tempFilter = '' : tempFilter = newFilter
+
+    if(tempFilter === '') {
+      setFilteredTasks([])
+      setFilter(tempFilter)
+    } else {
+      let filteredList = []
+  
+      switch (true) {
+        case tempFilter === 'completed':
+          filteredList = tasks.filter( stateTask => stateTask.status === 'done')        
+          break;
+        case tempFilter === 'progress':
+          filteredList = tasks.filter( stateTask => stateTask.status === 'in progress')        
+          break;
+        case tempFilter === 'incompleted':
+          filteredList = tasks.filter( stateTask => stateTask.status === 'not started')        
+          break;
+        case tempFilter === 'important':
+          filteredList = tasks.filter( stateTask => stateTask.favorite === true)        
+          break;
+        case tempFilter === 'name':
+          filteredList = [...tasks].sort((a, b) => a.name.localeCompare(b.name))     
+          break;
+        case tempFilter === 'date':
+          filteredList = [...tasks].sort((a, b) => {
+            const dataA = new Date(a.dueDate)
+            const dataB = new Date(b.dueDate)
+            return dataA - dataB
+          })     
+          break;
+      }
+  
+      setFilteredTasks(filteredList)
+      setFilter(tempFilter)
+    }
   }
   
 
@@ -123,7 +166,11 @@ const TasksProvider = ({children}) => {
             editing,
             setEditing,
             handleEdit,
-            editTask
+            editTask,
+            filter,
+            setFilter,
+            handleFilter,
+            filteredTasks
         }}
     >
         {children}
