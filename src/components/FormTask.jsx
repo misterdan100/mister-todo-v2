@@ -5,8 +5,12 @@ import useTasks from "../hooks/useTasks";
 import PlusIcon from "../assets/PlusIcon";
 import "../styles/formTask.css";
 import Alert from "./Alert";
+import { idGenerator } from "../helpers/formatDate";
 
 const FormTask = () => {
+  const { selectTask, categories, getCategories, isOpen, alert, setAlert, createTask, editing, setEditing, editTask  } = useTasks();
+
+  const [id, setId] = useState(idGenerator())
   const [favorite, setFavorite] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -17,11 +21,33 @@ const FormTask = () => {
   const [tagInput, setTagInput] = useState("");
   const [tags, setTags] = useState([]);
 
-  const { categories, getCategories, isOpen, alert, setAlert, createTask } = useTasks();
 
   useEffect(() => {
+    if(!isOpen) {
+      resetForm()
+      setEditing(false)
+      return
+    }
+    if(editing) {
+      filForm(selectTask)
+      getCategories();
+      return
+    }
+    resetForm()
     getCategories();
   }, [isOpen]);
+
+  const resetForm = () => {
+    setFavorite(false);
+    setTitle("");
+    setDescription("");
+    setDate("");
+    setStatus("not started");
+    setPriority("low");
+    setProject("");
+    setTagInput("");
+    setTags([]);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,8 +58,11 @@ const FormTask = () => {
         })
         return
     }
-    setAlert({})
-    createTask({
+
+    if(editing) {
+      setAlert({})
+      editTask({
+        id,
         name: title,
         description,
         dueDate: date,
@@ -43,7 +72,21 @@ const FormTask = () => {
         tags,
         favorite
     })
+    return
+    }
 
+    setAlert({})
+    createTask({
+        id,
+        name: title,
+        description,
+        dueDate: date,
+        status,
+        priority,
+        projectCategory: project,
+        tags,
+        favorite
+    })
   };
 
   const handleFavorite = () => {
@@ -69,6 +112,18 @@ const FormTask = () => {
     }
     setAlert({})
     setTags([...tags, tagInput.trim().toLowerCase()])
+  }
+
+  const filForm = task => {
+    setId(task.id)
+    setFavorite(task.favorite);
+    setTitle(task.name);
+    setDescription(task.description);
+    setDate(task.dueDate.split('T')[0]);
+    setStatus(task.status);
+    setPriority(task.priority);
+    setProject(task.projectCategory);
+    setTags(task.tags);
   }
 
   return (
@@ -164,7 +219,7 @@ const FormTask = () => {
             id="project"
             onChange={e => setProject(e.target.value)}
         >
-          <option value="" disabled>
+          <option value="" disabled defaultChecked>
             select one
           </option>
           {categories?.map((cat, index) => (
@@ -179,7 +234,7 @@ const FormTask = () => {
         <label htmlFor="tags-input">Tag / List</label>
         <div className="tag-list1">
           {tags?.map(tag => (
-            <p>{tag}</p>
+            <p key={tag}>{tag}</p>
           ))}
         </div>
         <div className="add-task">
@@ -205,8 +260,8 @@ const FormTask = () => {
       {alert.msg && <Alert alert={alert}/>}
       
       <div>
-        <button className="save-button" type="submit">
-          Save
+        <button className={`save-button ${editing && 'editing'}`} type="submit">
+          {editing ? 'Save' : 'Create'}
         </button>
       </div>
     </form>

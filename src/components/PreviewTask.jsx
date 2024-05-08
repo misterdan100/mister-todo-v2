@@ -3,11 +3,11 @@ import useTasks from "../hooks/useTasks";
 import CheckCircle from "../assets/CheckCircle";
 import UncheckedIcon from "../assets/UncheckedIcon";
 import "../styles/previewTask.css";
+import { formatDate } from "../helpers/formatDate.js";
 
 const PreviewTask = ({task}) => {
-  const { isOpen, setIsOpen, selectTask, setSelectTask, handleCheck, handleDelete } = useTasks()
-  const { name, priority } = task;
-
+  const { isOpen, setIsOpen, selectTask, setSelectTask, handleCheck, handleDelete, handleEdit } = useTasks()
+  const { name, priority, dueDate } = task;
   
   return (
     <div className="preview-task">
@@ -25,7 +25,7 @@ const PreviewTask = ({task}) => {
           <h2 className="title-task">{name}</h2>
 
           <div className="task-info">
-            <p className="task-date">27/04/2024</p>
+            <p className="task-date">{formatDate(dueDate)}</p>
             <p>Priority: <span className={priority}>{priority}</span></p>
           </div>
         </div>
@@ -33,7 +33,7 @@ const PreviewTask = ({task}) => {
 
       <div className="buttons">
         <button 
-          onClick={() => setIsOpen(true)}
+          onClick={() => handleEdit(task)}
           className="edit-button"
         >Edit</button>
         <button 

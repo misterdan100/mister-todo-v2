@@ -124,6 +124,11 @@
     background: var(--green-color-light);;
 }
 
+.form-task option,
+.form-task select {
+    text-transform: capitalize;
+}
+
 .form-task .tag-list1 {
     display: flex;
     flex-direction: row;
@@ -194,5 +199,15 @@
 
 .form-task .save-button:hover {
     background: #cde6ff;
+}
+
+.form-task .save-button.editing {
+    background: var(--orange-color-light);
+    border: 2px solid var(--orange-color);
+    color: var(--orange-color);
+}
+
+.form-task .save-button.editing:hover {
+    background: #fcedb7;
 }
 

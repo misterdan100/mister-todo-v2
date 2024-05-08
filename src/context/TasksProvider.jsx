@@ -4,11 +4,13 @@ import tasksDb from '../db/exampleTasks.js'
 const TasksContext = createContext()
 
 const TasksProvider = ({children}) => {
+  const [selectTask, setSelectTask] = useState({})
   const [isOpen, setIsOpen] = useState(false)
   const [tasks, setTasks] = useState([])
-  const [selectTask, setSelectTask] = useState({})
   const [categories, setCategories] = useState([])
   const [alert, setAlert] = useState({})
+  const [filteredTasks, setFilteredTasks] = useState([])
+  const [editing, setEditing] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
@@ -53,7 +55,9 @@ const TasksProvider = ({children}) => {
 }
 
   const createTask = task => {
+    task.id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
     setTasks([task, ...tasks])
+    setIsOpen(false)
   }
 
   const loadDb = () => {
@@ -76,8 +80,26 @@ const TasksProvider = ({children}) => {
   }
 
   const handleDelete = task => {
-    const updatedTasks = tasks.filter(taskState => taskState.name !== task.name && taskState )
+    const confirmMessage = 'Are you sure about delete this task?'
+    if(confirm(confirmMessage)) {
+      const updatedTasks = tasks.filter(taskState => taskState.name !== task.name && taskState )
+      setTasks(updatedTasks)
+    }
+  }
+
+  const handleEdit = task => {
+    setSelectTask(task)
+    setEditing(true)
+    setIsOpen(true)
+  }
+
+  const editTask = task => {
+    
+    const updatedTasks = tasks.map( taskState => taskState.id === task.id ? task : taskState)
     setTasks(updatedTasks)
+
+    setEditing(false)
+    setIsOpen(false)
   }
   
 
@@ -86,10 +108,10 @@ const TasksProvider = ({children}) => {
         value={{
             tasks,
             setTasks,
-            isOpen,
-            setIsOpen,
             selectTask,
             setSelectTask,
+            isOpen,
+            setIsOpen,
             createTask,
             categories,
             getCategories,
@@ -97,7 +119,11 @@ const TasksProvider = ({children}) => {
             setAlert,
             loadDb,
             handleCheck,
-            handleDelete
+            handleDelete,
+            editing,
+            setEditing,
+            handleEdit,
+            editTask
         }}
     >
         {children}
