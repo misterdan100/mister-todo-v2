@@ -1,7 +1,6 @@
 import { useState } from "react";
 import useTasks from "../hooks/useTasks";
 import PreviewTask from "../components/PreviewTask";
-import ModalTask from "../components/ModalTask";
 import PlusIcon from "../assets/PlusIcon";
 import "../styles/task.css";
 
@@ -47,7 +46,7 @@ const Tasks = () => {
         ))}
       </div>
 
-      <ModalTask />
+      
     </div>
   );
 };

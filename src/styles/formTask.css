@@ -136,22 +136,37 @@
     gap: .3rem;
 }
 
-.form-task .tag-list1 p {
+.form-task .tag-list1 div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
    background: var(--gray-light);
    padding: .1rem .7rem;
    border-radius: var(--button-radious);
    border: 1px solid var(--gray-dark2);
    cursor: default;
    text-transform: capitalize;
-
    transition: all 0.3s;
 }
 
-.form-task .tag-list1 p:hover {
-    background: #e0e0e0;
+.form-task .tag-list1 div:hover {
+    background: #eaeaea;
 }
 
-.form-task .add-task {
+.form-task .tag-list1 div button {
+    color: var(--gray-dark2);
+    width: 18px;
+    height: 18px;
+    transition: all 0.3s;
+}
+
+.form-task .tag-list1 div button:hover {
+    color: var(--red-color);
+}
+
+.form-task .add-task,
+.form-task .add-project {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

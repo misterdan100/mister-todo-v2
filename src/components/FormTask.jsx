@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import StarOutline from "../assets/StarOutline";
 import StarSolid from "../assets/StarSolid";
+import DeleteIcon from "../assets/DeleteIcon";
 import useTasks from "../hooks/useTasks";
 import PlusIcon from "../assets/PlusIcon";
 import "../styles/formTask.css";
@@ -8,8 +9,7 @@ import Alert from "./Alert";
 import { idGenerator } from "../helpers/formatDate";
 
 const FormTask = () => {
-  const { selectTask, categories, getCategories, isOpen, alert, setAlert, createTask, editing, setEditing, editTask  } = useTasks();
-
+  const { selectTask, categories, setCategories, getCategories, isOpen, alert, setAlert, createTask, editing, setEditing, editTask  } = useTasks();
   const [id, setId] = useState(idGenerator())
   const [favorite, setFavorite] = useState(false);
   const [title, setTitle] = useState("");
@@ -18,6 +18,7 @@ const FormTask = () => {
   const [status, setStatus] = useState("not started");
   const [priority, setPriority] = useState("low");
   const [project, setProject] = useState("");
+  const [newProject, setNewProject] = useState("");
   const [tagInput, setTagInput] = useState("");
   const [tags, setTags] = useState([]);
 
@@ -34,6 +35,7 @@ const FormTask = () => {
       return
     }
     resetForm()
+    selectTask.projectCategory !== '' && setProject(selectTask.projectCategory)
     getCategories();
   }, [isOpen]);
 
@@ -44,7 +46,7 @@ const FormTask = () => {
     setDate("");
     setStatus("not started");
     setPriority("low");
-    setProject("");
+    setProject('');
     setTagInput("");
     setTags([]);
   }
@@ -53,7 +55,7 @@ const FormTask = () => {
     e.preventDefault();
     if(title.trim() === '') {
         setAlert({
-            msg: 'The task must have a Title',
+            msg: 'The task must have a Title.',
             error: true
         })
         return
@@ -93,13 +95,46 @@ const FormTask = () => {
     setFavorite(!favorite);
   };
 
+  const addNewProject = () => {
+    if(newProject.trim() === '') {
+      setAlert({
+        msg: 'New project is empty.',
+        error: true
+      })
+
+      setTimeout(() => {
+        setAlert({})
+      }, 3000);
+      return
+    }
+
+    if(categories.includes(newProject.trim().toLowerCase())) {
+      setAlert({
+        msg: 'New project already is added.',
+        error: true
+      })
+
+      setTimeout(() => {
+        setAlert({})
+      }, 3000);
+      return
+    }
+
+    setCategories(e => [...e, newProject])
+    setNewProject('')
+  }
+
   const newTags = () => {
 
     if(tagInput.trim() === '') {
         setAlert({
-            msg: 'New tag must be a text.',
+            msg: 'New tag must be a word.',
             error: true
         })
+
+        setTimeout(() => {
+          setAlert({})
+        }, 3000);
         return
     }
     
@@ -112,6 +147,12 @@ const FormTask = () => {
     }
     setAlert({})
     setTags([...tags, tagInput.trim().toLowerCase()])
+    setTagInput('')
+  }
+
+  const deleteTag = tagToDelete => {
+    const updatedTags = tags.filter( stateTag => stateTag !== tagToDelete)
+    setTags(updatedTags)
   }
 
   const filForm = task => {
@@ -214,27 +255,55 @@ const FormTask = () => {
 
       <div>
         <label htmlFor="project">Add to Project</label>
-        <select 
-            name="project" 
-            id="project"
-            onChange={e => setProject(e.target.value)}
-        >
-          <option value="" disabled defaultChecked>
-            select one
-          </option>
-          {categories?.map((cat, index) => (
-            <option key={index} value={cat.toLowerCase()}>
-              {cat}
+        <div className="add-project">
+
+          <select 
+              name="project" 
+              id="project"
+              onChange={e => setProject(e.target.value)}
+              value={project?.toLowerCase()}
+          >
+            <option value="" disabled>
+              select one
             </option>
-          ))}
-        </select>
+            {categories?.map((cat, index) => (
+              <option 
+                key={index} 
+                value={cat.toLowerCase()} 
+              >
+                {cat}
+              </option>
+            ))}
+          </select>
+
+          <input 
+            type="text" 
+            placeholder="New project..."
+            value={newProject}
+            onChange={e => setNewProject(e.target.value)}
+          />
+          <button
+              onClick={addNewProject}
+              type="button"
+            >
+              <PlusIcon />
+          </button>
+        </div>
       </div>
 
       <div>
         <label htmlFor="tags-input">Tag / List</label>
         <div className="tag-list1">
           {tags?.map(tag => (
-            <p key={tag}>{tag}</p>
+            <div key={tag}>
+              <p>{tag}</p>
+              <button
+                type="button"
+                onClick={() => deleteTag(tag)}
+              >
+                <DeleteIcon />
+              </button>
+            </div>
           ))}
         </div>
         <div className="add-task">

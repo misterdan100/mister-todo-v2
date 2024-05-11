@@ -13,7 +13,7 @@
 .preview-task:hover {
     box-shadow: var(--panel-shadow);
     border: 1px solid var(--second-color);
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 .preview-task .preview-1 {

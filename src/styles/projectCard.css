@@ -1,0 +1,55 @@
+.projectCard-container {
+    min-width: 200px;
+    min-height: 200px;
+    background: var(--white);
+    border-radius: var(--panel-radious);
+    box-shadow: rgba(60, 64, 67, 0.05) 0px 1px 2px 0px, rgba(60, 64, 67, 0.05) 0px 2px 6px 2px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+.projectCard-container:hover {
+    border: 1px solid var(--gray-dark2);
+}
+
+.projectCard-container .projectCard-head {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-light);
+}
+
+.projectCard-container .project-title {
+    color: var(--gray-dark);
+    font-size: var(--font-lg);
+    font-weight: bold;
+    text-transform: capitalize;
+    letter-spacing: .1rem;
+}
+
+.projectCard-container .projectCard-head .add-continer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gray-light);
+    height: 25px;
+    padding: 2px 10px 2px 6px;
+    border-radius: 6px;
+    border: 1px solid var(--gray-dark2);
+    color: var(--gray-dark);
+    /* transition: all 0.3s; */
+}
+
+.projectCard-container .projectCard-head .add-continer:hover {
+    border: 1px solid var(--second-color);
+    cursor: pointer;
+}
+
+.projectCard-container .projectCard-head svg {
+    color: var(--gray-dark);
+    transition: all 0.3s;
+}

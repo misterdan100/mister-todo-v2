@@ -6,7 +6,7 @@ const tasks = [
     dueDate: "2024-04-29T00:00:00.000Z",
     status: "not started",
     priority: "high",
-    projectCategory: "Tareas domésticas",
+    projectCategory: "tareas domesticas",
     tags: ["hogar",
       "limpieza"],
     favorite: true
@@ -19,7 +19,7 @@ const tasks = [
     dueDate: "2024-04-30T00:00:00.000Z",
     status: "in progress",
     priority: "medium",
-    projectCategory: "Compras",
+    projectCategory: "compras",
     tags: ["comida",
       "hogar"],
     favorite: false
@@ -32,7 +32,7 @@ const tasks = [
     dueDate: "2024-05-02T00:00:00.000Z",
     status: "not started",
     priority: "high",
-    projectCategory: "Trabajo",
+    projectCategory: "trabajo",
     tags: ["oficina",
       "ventas"],
     favorite: true
@@ -45,7 +45,7 @@ const tasks = [
     dueDate: "2024-05-05T00:00:00.000Z",
     status: "in progress",
     priority: "low",
-    projectCategory: "Tareas domésticas",
+    projectCategory: "tareas domesticas",
     tags: ["hogar",
       "jardín"],
     favorite: false
@@ -58,7 +58,7 @@ const tasks = [
     dueDate: "2024-05-10T00:00:00.000Z",
     status: "not started",
     priority: "high",
-    projectCategory: "Educación",
+    projectCategory: "educacion",
     tags: ["estudios",
       "examen"],
     favorite: false
@@ -71,7 +71,7 @@ const tasks = [
     dueDate: "2024-05-15T00:00:00.000Z",
     status: "done",
     priority: "medium",
-    projectCategory: "Viajes",
+    projectCategory: "viajes",
     tags: ["vacaciones",
       "aventura"],
     favorite: true
@@ -84,7 +84,7 @@ const tasks = [
     dueDate: "2024-05-20T00:00:00.000Z",
     status: "not started",
     priority: "low",
-    projectCategory: "Ocio",
+    projectCategory: "ocio",
     tags: ["lectura",
       "fantasía"],
     favorite: false
@@ -97,7 +97,7 @@ const tasks = [
     dueDate: "2024-05-25T00:00:00.000Z",
     status: "in progress",
     priority: "medium",
-    projectCategory: "Salud y bienestar",
+    projectCategory: "salud y bienestar",
     tags: ["fitness",
       "ejercicio"],
     favorite: true
@@ -110,7 +110,7 @@ const tasks = [
     dueDate: "2024-05-30T00:00:00.000Z",
     status: "not started",
     priority: "medium",
-    projectCategory: "Eventos",
+    projectCategory: "eventos",
     tags: ["celebración",
       "social"],
     favorite: false
@@ -123,7 +123,7 @@ const tasks = [
     dueDate: "2024-06-05T00:00:00.000Z",
     status: "done",
     priority: "high",
-    projectCategory: "Educación",
+    projectCategory: "educacion",
     tags: ["idiomas",
       "aprendizaje"],
     favorite: true

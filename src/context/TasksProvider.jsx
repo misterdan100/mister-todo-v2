@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react"
 import tasksDb from '../db/exampleTasks.js'
+import { projects } from "../db/exampleProjects.js"
 
 const TasksContext = createContext()
 
@@ -44,21 +45,27 @@ const TasksProvider = ({children}) => {
 
   useEffect(() => {
     localStorage.setItem('misterTodo', JSON.stringify(tasks))
+
+    getCategories()
   }, [tasks])
 
   const getCategories = () => {
-    const newCategories = tasks.reduce( (sumary, current) => {
-        sumary.push(current.projectCategory)
-        return sumary
-    }, [])
-
-    setCategories(newCategories)
-}
+    const tasksProjects = tasks.map( current => current.projectCategory)
+    let defaultProjects = [...new Set(tasksProjects, projects, categories)]
+    
+    setCategories(defaultProjects)
+  }
 
   const createTask = task => {
     task.id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
     setTasks([task, ...tasks])
     setIsOpen(false)
+    setSelectTask({})
+  }
+
+  const handleCreateTaskFromProject = category => {
+    setSelectTask(category)
+    setIsOpen(true)
   }
 
   const loadDb = () => {
@@ -92,7 +99,6 @@ const TasksProvider = ({children}) => {
     setSelectTask(task)
     setEditing(true)
     setIsOpen(true)
-
   }
   
   const editTask = task => {
@@ -105,7 +111,6 @@ const TasksProvider = ({children}) => {
   }
 
   const handleFilter = newFilter => {
-    console.log(newFilter)
     let tempFilter = ''
     newFilter === filter ? tempFilter = '' : tempFilter = newFilter
 
@@ -157,6 +162,7 @@ const TasksProvider = ({children}) => {
             setIsOpen,
             createTask,
             categories,
+            setCategories,
             getCategories,
             alert,
             setAlert,
@@ -170,7 +176,8 @@ const TasksProvider = ({children}) => {
             filter,
             setFilter,
             handleFilter,
-            filteredTasks
+            filteredTasks,
+            handleCreateTaskFromProject
         }}
     >
         {children}
