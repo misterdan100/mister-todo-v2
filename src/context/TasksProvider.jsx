@@ -52,6 +52,7 @@ const TasksProvider = ({children}) => {
   const getCategories = () => {
     const tasksProjects = tasks.map( current => current.projectCategory)
     let defaultProjects = [...new Set(tasksProjects, projects, categories)]
+    defaultProjects = defaultProjects.filter( project => project !== undefined)
     
     setCategories(defaultProjects)
   }
@@ -65,6 +66,11 @@ const TasksProvider = ({children}) => {
 
   const handleCreateTaskFromProject = category => {
     setSelectTask(category)
+    setIsOpen(true)
+  }
+
+  const handleCreateTaskFromTag = tag => {
+    setSelectTask(tag)
     setIsOpen(true)
   }
 
@@ -177,7 +183,8 @@ const TasksProvider = ({children}) => {
             setFilter,
             handleFilter,
             filteredTasks,
-            handleCreateTaskFromProject
+            handleCreateTaskFromProject,
+            handleCreateTaskFromTag
         }}
     >
         {children}

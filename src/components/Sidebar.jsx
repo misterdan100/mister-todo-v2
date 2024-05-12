@@ -19,7 +19,7 @@ const Sidebar = () => {
         <Link to="/">Home</Link>
         <Link to="/tasks">Tasks</Link>
         <Link to="/projects">Projects</Link>
-        <Link to="/lists">Lists</Link>
+        <Link to="/tags">Tags</Link>
         <Link to="/important">Important</Link>
         <button 
           onClick={loadDb}

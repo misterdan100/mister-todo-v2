@@ -7,28 +7,33 @@ const ProjectCard = ({project}) => {
   const { tasks, handleCreateTaskFromProject } = useTasks()
 
   return (
-    <div className='projectCard-container'>
-      <div className='projectCard-head'>
-        <h3 className='project-title'>{project}</h3>
-        <button 
-        type='button'
-        onClick={() => handleCreateTaskFromProject({
-          projectCategory: project
-        })}
-          className='add-continer'
-        >
-          <PlusIcon />
-          <p>add</p>
-        </button>
+    <div className="projectCard-container">
+      <div className="projectCard-head">
+        <h3 className="project-title">
+          {project ? project : "Without project"}
+        </h3>
+        {project && (
+          <button
+            type="button"
+            onClick={() =>
+              handleCreateTaskFromProject({
+                projectCategory: project,
+              })
+            }
+            className="add-continer"
+          >
+            <PlusIcon />
+            <p>add</p>
+          </button>
+        )}
       </div>
-      {tasks?.map( (task, index) => {
-        if(task.projectCategory.toLowerCase() === project.toLowerCase()) {
-          return <PreviewTask key={index} task={task}/>
+      {tasks?.map((task, index) => {
+        if (task.projectCategory?.toLowerCase() === project?.toLowerCase()) {
+          return <PreviewTask key={index} task={task} />;
         }
       })}
     </div>
-
-  )
+  );
 }
 
 export default ProjectCard

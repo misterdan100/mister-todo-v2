@@ -36,6 +36,7 @@ const FormTask = () => {
     }
     resetForm()
     selectTask.projectCategory !== '' && setProject(selectTask.projectCategory)
+    selectTask.tags.length > 0 && setTags(selectTask.tags)
     getCategories();
   }, [isOpen]);
 
@@ -108,7 +109,7 @@ const FormTask = () => {
       return
     }
 
-    if(categories.includes(newProject.trim().toLowerCase())) {
+    if(categories?.includes(newProject.trim().toLowerCase())) {
       setAlert({
         msg: 'New project already is added.',
         error: true
@@ -174,9 +175,9 @@ const FormTask = () => {
           type="text"
           placeholder="Task name"
           onChange={(e) => {
-            setTitle(e.target.value)
-            setAlert({})
-        }}
+            setTitle(e.target.value);
+            setAlert({});
+          }}
           value={title}
         />
         <div
@@ -195,7 +196,7 @@ const FormTask = () => {
           rows="3"
           placeholder="Task description..."
           value={description}
-          onChange={e => setDescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
         ></textarea>
       </div>
 
@@ -217,15 +218,24 @@ const FormTask = () => {
           className="radio-priority"
         >
           <input type="radio" name="priority" value="low" id="low" />
-          <label htmlFor="low" className={`radio-label ${priority === "low" ? 'checked' : ''}`} >
+          <label
+            htmlFor="low"
+            className={`radio-label ${priority === "low" ? "checked" : ""}`}
+          >
             Low
           </label>
           <input type="radio" name="priority" value="medium" id="medium" />
-          <label htmlFor="medium" className={`radio-label ${priority === 'medium' ? 'checked' : ''}`} >
+          <label
+            htmlFor="medium"
+            className={`radio-label ${priority === "medium" ? "checked" : ""}`}
+          >
             Medium
           </label>
           <input type="radio" name="priority" value="high" id="high" />
-          <label htmlFor="high" className={`radio-label ${priority === 'high' ? 'checked' : ''}`} >
+          <label
+            htmlFor="high"
+            className={`radio-label ${priority === "high" ? "checked" : ""}`}
+          >
             High
           </label>
         </div>
@@ -238,17 +248,40 @@ const FormTask = () => {
           onChange={(e) => setStatus(e.target.value)}
           className="radio-priority"
         >
-          <input type="radio" name="status" value="not started" id="not started" />
-          <label htmlFor="not started" className={`radio-label ${status === "not started" ? 'checked' : ''}`} >
-          Not Started
+          <input
+            type="radio"
+            name="status"
+            value="not started"
+            id="not started"
+          />
+          <label
+            htmlFor="not started"
+            className={`radio-label ${
+              status === "not started" ? "checked" : ""
+            }`}
+          >
+            Not Started
           </label>
-          <input type="radio" name="status" value="in progress" id="in progress" />
-          <label htmlFor="in progress" className={`radio-label ${status === 'in progress' ? 'checked' : ''}`} >
-          In progress
+          <input
+            type="radio"
+            name="status"
+            value="in progress"
+            id="in progress"
+          />
+          <label
+            htmlFor="in progress"
+            className={`radio-label ${
+              status === "in progress" ? "checked" : ""
+            }`}
+          >
+            In progress
           </label>
           <input type="radio" name="status" value="done" id="done" />
-          <label htmlFor="done" className={`radio-label ${status === 'done' ? 'checked' : ''}`} >
-          Done
+          <label
+            htmlFor="done"
+            className={`radio-label ${status === "done" ? "checked" : ""}`}
+          >
+            Done
           </label>
         </div>
       </div>
@@ -256,37 +289,30 @@ const FormTask = () => {
       <div>
         <label htmlFor="project">Add to Project</label>
         <div className="add-project">
-
-          <select 
-              name="project" 
-              id="project"
-              onChange={e => setProject(e.target.value)}
-              value={project?.toLowerCase()}
+          <select
+            name="project"
+            id="project"
+            onChange={(e) => setProject(e.target.value)}
+            value={project?.toLowerCase()}
           >
             <option value="" disabled>
               select one
             </option>
             {categories?.map((cat, index) => (
-              <option 
-                key={index} 
-                value={cat.toLowerCase()} 
-              >
+              <option key={index} value={cat?.toLowerCase()}>
                 {cat}
               </option>
             ))}
           </select>
 
-          <input 
-            type="text" 
+          <input
+            type="text"
             placeholder="New project..."
             value={newProject}
-            onChange={e => setNewProject(e.target.value)}
+            onChange={(e) => setNewProject(e.target.value)}
           />
-          <button
-              onClick={addNewProject}
-              type="button"
-            >
-              <PlusIcon />
+          <button onClick={addNewProject} type="button">
+            <PlusIcon />
           </button>
         </div>
       </div>
@@ -294,43 +320,37 @@ const FormTask = () => {
       <div>
         <label htmlFor="tags-input">Tag / List</label>
         <div className="tag-list1">
-          {tags?.map(tag => (
+          {tags?.map((tag) => (
             <div key={tag}>
               <p>{tag}</p>
-              <button
-                type="button"
-                onClick={() => deleteTag(tag)}
-              >
+              <button type="button" onClick={() => deleteTag(tag)}>
                 <DeleteIcon />
               </button>
             </div>
           ))}
         </div>
         <div className="add-task">
-          <input 
-            type="text" 
-            id="tags-input" 
-            placeholder="New tag" 
+          <input
+            type="text"
+            id="tags-input"
+            placeholder="New tag"
             value={tagInput}
-            onChange={e => {
-                setTagInput(e.target.value)
-                setAlert({})
+            onChange={(e) => {
+              setTagInput(e.target.value);
+              setAlert({});
             }}
           />
-          <button
-            onClick={newTags}
-            type="button"
-          >
+          <button onClick={newTags} type="button">
             <PlusIcon />
           </button>
         </div>
       </div>
 
-      {alert.msg && <Alert alert={alert}/>}
-      
+      {alert.msg && <Alert alert={alert} />}
+
       <div>
-        <button className={`save-button ${editing && 'editing'}`} type="submit">
-          {editing ? 'Save' : 'Create'}
+        <button className={`save-button ${editing && "editing"}`} type="submit">
+          {editing ? "Save" : "Create"}
         </button>
       </div>
     </form>
