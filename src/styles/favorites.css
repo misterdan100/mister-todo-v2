@@ -1,0 +1,5 @@
+.important-container {
+    display: grid;
+    gap: .5rem;
+    margin-top: 1rem;
+}

@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Tasks from './pages/Tasks'
 import Projects from './pages/Projects'
 import Tags from './pages/Tags'
-import Important from './pages/Important'
+import Favorites from './pages/Favorites'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
             <Route path='tasks' element={<Tasks />}/>
             <Route path='projects' element={<Projects />}/>
             <Route path='tags' element={<Tags />}/>
-            <Route path='important' element={<Important />}/>
+            <Route path='favorites' element={<Favorites />}/>
 
           </Route>
         </Routes>
