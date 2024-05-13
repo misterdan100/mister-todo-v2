@@ -36,7 +36,7 @@ const FormTask = () => {
     }
     resetForm()
     selectTask.projectCategory !== '' && setProject(selectTask.projectCategory)
-    selectTask.tags.length > 0 && setTags(selectTask.tags)
+    selectTask.tags?.length > 0 && setTags(selectTask.tags)
     getCategories();
   }, [isOpen]);
 

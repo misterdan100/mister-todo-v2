@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import "../styles/sidebar.css";
 import useTasks from "../hooks/useTasks";
+import PlusIcon from '../assets/PlusIcon'
+import "../styles/sidebar.css";
 
 const Sidebar = () => {
-  const { loadDb } = useTasks()
+  const { loadDb, setIsOpen } = useTasks()
 
   return (
     <>
@@ -21,6 +22,14 @@ const Sidebar = () => {
         <Link to="/projects">Projects</Link>
         <Link to="/tags">Tags</Link>
         <Link to="/favorites">Favorites</Link>
+        <button 
+          type="button"
+          onClick={() => setIsOpen(true)} 
+          className="tag-filter create-button"
+        >
+          <PlusIcon />
+          New
+        </button>
         <button 
           onClick={loadDb}
           className="import-btn"

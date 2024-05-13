@@ -48,3 +48,19 @@
 .import-btn:hover {
     opacity: 100%;
 }
+
+.links .create-button {
+    background: var(--second-color-light);
+    color: var(--second-color);
+    border: 1px solid var(--second-color);
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    transition: all 0.3s;
+}
+
+.links .create-button:hover {
+    background: #d7ebff;
+    color: var(--second-color);
+}
