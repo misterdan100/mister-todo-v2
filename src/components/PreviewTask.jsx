@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useTasks from "../hooks/useTasks";
 import CheckCircle from "../assets/CheckCircle";
 import UncheckedIcon from "../assets/UncheckedIcon";

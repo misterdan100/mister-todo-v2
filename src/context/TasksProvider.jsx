@@ -5,6 +5,7 @@ import { projects } from "../db/exampleProjects.js"
 const TasksContext = createContext()
 
 const TasksProvider = ({children}) => {
+  const [username, setUsername] = useState('')
   const [selectTask, setSelectTask] = useState({})
   const [isOpen, setIsOpen] = useState(false)
   const [tasks, setTasks] = useState([])
@@ -45,9 +46,10 @@ const TasksProvider = ({children}) => {
 
   useEffect(() => {
     localStorage.setItem('misterTodo', JSON.stringify(tasks))
+    localStorage.setItem('misterTodoName', JSON.stringify(username))
 
     getCategories()
-  }, [tasks])
+  }, [tasks, username])
 
   const getCategories = () => {
     const tasksProjects = tasks.map( current => current.projectCategory)
@@ -160,6 +162,8 @@ const TasksProvider = ({children}) => {
   return (
     <TasksContext.Provider 
         value={{
+            username,
+            setUsername,
             tasks,
             setTasks,
             selectTask,
