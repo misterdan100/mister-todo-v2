@@ -20,7 +20,7 @@ const Sidebar = () => {
         <Link to="/tasks">Tasks</Link>
         <Link to="/projects">Projects</Link>
         <Link to="/tags">Tags</Link>
-        <Link to="/important">Important</Link>
+        <Link to="/favorites">Favorites</Link>
         <button 
           onClick={loadDb}
           className="import-btn"

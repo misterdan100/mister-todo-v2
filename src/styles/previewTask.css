@@ -30,6 +30,10 @@
     transition: all 0.3s;
 }
 
+.preview-task .icon:active {
+    animation: focusBtn .3s;
+}
+
 .preview-task .icon.icon-done svg {
     width: 27px;
     height: 27px;
@@ -37,6 +41,7 @@
 
 .preview-task .icon:hover {
     color: var(--gray-dark);
+    transform: rotate(360deg);
 }
 
 .preview-task .icon.icon-done {

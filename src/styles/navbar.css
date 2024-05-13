@@ -7,13 +7,48 @@
     border-bottom: 1px solid rgb(202, 202, 202);
 }
 
-.navbar-container h1 {
+.navbar-container .title-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: .5rem;
+}
+
+.navbar-container .title-container svg {
+    width: 30px;
+    height: 30px;
+    color: var(--gray-dark);
+    transition: all 0.3s;
+}
+
+.navbar-container .title-container svg:hover {
+    transform: rotate(360deg) scale(1.1);
+    color: var(--yellow-color);
+}
+
+.navbar-container .title-container svg:active {
+    animation: focusBtn .3s;
+}
+
+@keyframes focusBtn {
+    0% {
+    }
+    100% {
+        transform: scale(3);
+    }
+}
+
+.navbar-container .nav-title {
     color: var(--gray-dark);
     font-weight: bold;
     transition: all 0.5s;
+    font-size: var(--font-xxl);
+    text-transform: uppercase;
+    color: var(--black-color);
+    cursor: default;
 }
 
-.navbar-container h1:hover {
+.navbar-container .nav-title:hover {
     color: var(--primary-color);
 }
 
