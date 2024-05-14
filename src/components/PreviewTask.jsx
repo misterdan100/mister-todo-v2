@@ -6,7 +6,7 @@ import "../styles/previewTask.css";
 import { formatDate } from "../helpers/formatDate.js";
 
 const PreviewTask = ({task}) => {
-  const { handleCheck, handleDelete, handleEdit } = useTasks()
+  const { handleCheck, handleEdit, setOpenConfirmDelete, setSelectTask } = useTasks()
   const { name, priority, dueDate } = task;
   
   return (
@@ -37,7 +37,10 @@ const PreviewTask = ({task}) => {
           className="edit-button"
         >Edit</button>
         <button 
-          onClick={() => handleDelete(task)}
+          onClick={() => {
+            setOpenConfirmDelete(true)
+            setSelectTask(task)
+          }}
           className="delete-button"
         >Delete</button>
       </div>

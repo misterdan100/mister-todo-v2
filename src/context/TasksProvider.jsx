@@ -1,4 +1,6 @@
 import { createContext, useState, useEffect } from "react"
+import React from "react"
+import { toast } from "react-toastify"
 import tasksDb from '../db/exampleTasks.js'
 import { projects } from "../db/exampleProjects.js"
 
@@ -8,6 +10,8 @@ const TasksProvider = ({children}) => {
   const [username, setUsername] = useState('')
   const [selectTask, setSelectTask] = useState({})
   const [isOpen, setIsOpen] = useState(false)
+  const [openConfirmDb, setOpenConfirmDb] = useState(false)
+  const [openConfirmDelete, setOpenConfirmDelete] = useState(false)
   const [tasks, setTasks] = useState([])
   const [categories, setCategories] = useState([])
   const [alert, setAlert] = useState({})
@@ -64,6 +68,7 @@ const TasksProvider = ({children}) => {
     setTasks([task, ...tasks])
     setIsOpen(false)
     setSelectTask({})
+    toast.success('Task created.')
   }
 
   const handleCreateTaskFromProject = category => {
@@ -77,10 +82,11 @@ const TasksProvider = ({children}) => {
   }
 
   const loadDb = () => {
-    if(confirm('Do you want to upload sample data?')) {
       setTasks(tasksDb)
       localStorage.setItem('misterTodo', JSON.stringify(tasksDb))
-    }
+      setOpenConfirmDb(false)
+  
+      toast.success('Example data loaded!')
   }
 
   const handleCheck = task => {
@@ -95,13 +101,15 @@ const TasksProvider = ({children}) => {
     setTasks(updatedTasks)
   }
 
-  const handleDelete = task => {
-    const confirmMessage = 'Are you sure about delete this task?'
-    if(confirm(confirmMessage)) {
-      const updatedTasks = tasks.filter(taskState => taskState.name !== task.name && taskState )
-      setTasks(updatedTasks)
-    }
-  }
+  const handleDelete = (task) => {
+    const updatedTasks = tasks.filter(
+      (taskState) => taskState.name !== task.name && taskState
+    );
+    setTasks(updatedTasks);
+    setOpenConfirmDelete(false)
+    setSelectTask({})
+    toast.error("Task deleted.");
+  };
 
   const handleEdit = task => {
     setSelectTask(task)
@@ -116,6 +124,7 @@ const TasksProvider = ({children}) => {
     
     setEditing(false)
     setIsOpen(false)
+    toast.success('Task edited.')
   }
 
   const handleFilter = newFilter => {
@@ -188,7 +197,11 @@ const TasksProvider = ({children}) => {
             handleFilter,
             filteredTasks,
             handleCreateTaskFromProject,
-            handleCreateTaskFromTag
+            handleCreateTaskFromTag,
+            openConfirmDb,
+            setOpenConfirmDb,
+            openConfirmDelete,
+            setOpenConfirmDelete
         }}
     >
         {children}

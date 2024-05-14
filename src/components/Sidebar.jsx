@@ -4,7 +4,7 @@ import PlusIcon from '../assets/PlusIcon'
 import "../styles/sidebar.css";
 
 const Sidebar = () => {
-  const { loadDb, setIsOpen } = useTasks()
+  const { setIsOpen, setOpenConfirmDb } = useTasks()
 
   return (
     <>
@@ -31,7 +31,7 @@ const Sidebar = () => {
           New
         </button>
         <button 
-          onClick={loadDb}
+          onClick={() => setOpenConfirmDb(true)}
           className="import-btn"
         >Import db</button>
       </div>
