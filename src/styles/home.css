@@ -89,7 +89,7 @@
 .home .quotes-section::before {
     position: absolute;
     content: '';
-    background-image: url('./src/assets/quotation-mark.png');
+    background-image: url('/quotation-mark.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -103,7 +103,7 @@
 .home .quotes-section::after {
     position: absolute;
     content: '';
-    background-image: url('./src/assets/quotation-mark.png');
+    background-image: url('/quotation-mark.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

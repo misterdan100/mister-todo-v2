@@ -14,11 +14,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />}/>
-            <Route path='tasks' element={<Tasks />}/>
-            <Route path='projects' element={<Projects />}/>
-            <Route path='tags' element={<Tags />}/>
-            <Route path='favorites' element={<Favorites />}/>
-
+            <Route path='/tasks' element={<Tasks />}/>
+            <Route path='/projects' element={<Projects />}/>
+            <Route path='/tags' element={<Tags />}/>
+            <Route path='/favorites' element={<Favorites />}/>
           </Route>
         </Routes>
       </BrowserRouter>

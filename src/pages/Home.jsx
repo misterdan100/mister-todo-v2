@@ -31,7 +31,7 @@ const Home = () => {
   }, [tasks])
   
   useEffect(() => {
-    setPercentage(completedTasks * 100 / totalTasks);
+    setPercentage((completedTasks * 100 / totalTasks).toFixed(0));
   }, [completedTasks, totalTasks]);
   
   useEffect(() => {

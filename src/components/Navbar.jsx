@@ -4,6 +4,7 @@ import ProjectIcon from '../assets/ProjectIcon'
 import TagIcon from '../assets/TagIcon'
 import TasksIcon from '../assets/TasksIcon'
 import StarSolid from '../assets/StarSolid'
+import DefaultProfile from '../assets/default-profile.jpg'
 import '../styles/navbar.css'
 
 
@@ -31,7 +32,7 @@ const Navbar = () => {
         />
 
         <div className='nav-user'>
-            <img src="/src/assets/react.svg" alt="" />
+            <img src={DefaultProfile} alt="" />
         </div>
     </div>
     

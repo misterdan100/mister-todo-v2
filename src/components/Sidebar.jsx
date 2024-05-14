@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useTasks from "../hooks/useTasks";
 import PlusIcon from "../assets/PlusIcon";
+import LogoImg from '../assets/misterdan-logo.png'
 import "../styles/sidebar.css";
 
 const Sidebar = () => {
@@ -12,8 +13,9 @@ const Sidebar = () => {
         <div className="logo">
           <img
             className="logo-img"
-            src="/src/assets/misterdan-logo-dark-1_small.png"
+            src={LogoImg}
             alt="logo"
+            title="misterdan logo"
           />
         </div>
 
