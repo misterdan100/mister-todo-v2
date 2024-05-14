@@ -7,7 +7,7 @@ import { projects } from "../db/exampleProjects.js"
 const TasksContext = createContext()
 
 const TasksProvider = ({children}) => {
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState(JSON.parse(localStorage.getItem("misterTodoName")));
   const [selectTask, setSelectTask] = useState({})
   const [isOpen, setIsOpen] = useState(false)
   const [openConfirmDb, setOpenConfirmDb] = useState(false)
