@@ -44,6 +44,19 @@
     box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+      /* roundness of the scroll thumb */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--gray-dark2);    /* color of the scroll thumb */
+    border-radius: 5px; 
+}
+
 li {
     list-style: none;
 }
@@ -69,3 +82,4 @@ button:active {
         opacity: 75%;
     }
 }
+

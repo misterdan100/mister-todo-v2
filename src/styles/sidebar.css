@@ -64,3 +64,19 @@
     background: #d7ebff;
     color: var(--second-color);
 }
+
+.credits {
+    color: var(--gray-dark2);
+    font-size: var(--font-sm);
+    text-align: center;
+    display: grid;
+    margin-top: 2rem;
+}
+
+.credits a {
+    transition: all 0.3s;
+}
+
+.credits a:hover {
+    color: var(--second-color);
+}

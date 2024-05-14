@@ -7,10 +7,15 @@
 
 .sidebar-container {
     background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 15%;
+    height: 100%;
     box-shadow: var(--panel-shadow);
     z-index: 1;
     padding: 3rem 2rem;
+    overflow-y: auto;
     /* padding-left: 3rem; */
 }
 

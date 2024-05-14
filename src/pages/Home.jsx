@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react';
 import useTasks from '../hooks/useTasks'
 import PreviewTask from '../components/PreviewTask'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import {adviceArray} from '../db/advices.js'
 import 'react-circular-progressbar/dist/styles.css';
 import '../styles/home.css'
-import { useEffect, useState } from 'react';
 
 const Home = () => {
   const { username, setUsername, tasks } = useTasks()
@@ -11,6 +12,7 @@ const Home = () => {
   const [completedTasks, setCompletedTasks] = useState(0)
   const [percentage, setPercentage] = useState(0)
   const [colorCircle, setColorCircle] = useState('#ffa500')
+  const [advice, setAdvice] = useState('')
 
   useEffect(() => {
     const updateRating = () => {
@@ -40,6 +42,15 @@ const Home = () => {
       else return prevColorCircle;
     });
   }, [percentage]);
+
+  useEffect(() => {
+    const getAdvice = async () => {
+      const random = Math.floor(Math.random() * adviceArray.length)
+      setAdvice(adviceArray[random])
+    }
+  
+    getAdvice()
+  }, [])
 
 
   return (
@@ -75,9 +86,8 @@ const Home = () => {
           <div className="quotes-section">
             <span className='note'>to mativate you...</span>
             <p className="quote">
-              Consistency is the key to success. Stay focused and persistent,
-              and you'll achieve your goals.{" "}
-              <span className="quote-author">- Steve Jobs</span>
+              {advice.advice}{" "}
+              <span className="quote-author">- {advice.author}</span>
             </p>
           </div>
         </div>
