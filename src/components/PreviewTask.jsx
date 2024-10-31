@@ -2,8 +2,8 @@ import useTasks from "../hooks/useTasks";
 import CheckCircle from "../assets/CheckCircle";
 import UncheckedIcon from "../assets/UncheckedIcon";
 import StarSolid from "../assets/StarSolid.jsx";
-import "../styles/previewTask.css";
 import { formatDate } from "../helpers/formatDate.js";
+import "../styles/previewTask.css";
 
 const PreviewTask = ({task}) => {
   const { handleCheck, handleEdit, setOpenConfirmDelete, setSelectTask } = useTasks()
@@ -22,7 +22,10 @@ const PreviewTask = ({task}) => {
         </div>
           
         <div className="">
-          <h2 className="title-task">{name} {' '} <span>{task.favorite && <StarSolid />}</span></h2>
+          <h2 
+            onClick={() => handleEdit(task)}
+            className="title-task"
+          >{name} {' '} <span>{task.favorite && <StarSolid />}</span></h2>
 
           <div className="task-info">
             <p className="task-date">{formatDate(dueDate)}</p>

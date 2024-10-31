@@ -39,7 +39,7 @@
 
 .tag-filter:hover {
     color: var(--black);
-    box-shadow: var(--button-shadow);
+    /* box-shadow: var(--button-shadow); */
 }
 
 .tasks-container .create-button {

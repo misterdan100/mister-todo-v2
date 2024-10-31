@@ -14,5 +14,5 @@ button:hover {
     background-color: var(--second-color-light);
     color: var(--black);
     border: var(--button-border) var(--second-color);
-    box-shadow: var(--button-shadow);
+    /* box-shadow: var(--button-shadow); */
 }

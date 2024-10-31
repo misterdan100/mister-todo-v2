@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import useTasks from "../hooks/useTasks";
 import PlusIcon from "../assets/PlusIcon";
+import { MenuIcon } from '../assets/MenuIcon'
 import LogoImg from '../assets/misterdan-logo.png'
 import "../styles/sidebar.css";
+import { HomeTaskIcon } from "../assets/HomeTaskIcon";
+import { TaskIcon2 } from "../assets/TaskIcon2";
+import { ProjectIcon2 } from "../assets/ProjectIcon2";
+import { TagIcon2 } from "../assets/TagIcon2";
+import { FavIcon } from "../assets/FavIcon";
 
 const Sidebar = () => {
   const { setIsOpen, setOpenConfirmDb } = useTasks();
@@ -19,23 +25,44 @@ const Sidebar = () => {
           />
         </div>
 
+        <div className="menu-title">
+          <h3>Menu</h3>
+          <button >
+            <MenuIcon />
+          </button>
+        </div>
+
         <div className="links">
-          <Link to="/">Home</Link>
-          <Link to="/tasks">Tasks</Link>
-          <Link to="/projects">Projects</Link>
-          <Link to="/tags">Tags</Link>
-          <Link to="/favorites">Favorites</Link>
-          <button
-            type="button"
-            onClick={() => setIsOpen(true)}
-            className="tag-filter create-button"
-          >
-            <PlusIcon />
-            New
-          </button>
-          <button onClick={() => setOpenConfirmDb(true)} className="import-btn">
-            Import db
-          </button>
+          <Link to="/">
+            <HomeTaskIcon />
+          Home</Link>
+          <Link to="/tasks">
+           <TaskIcon2 />
+          Tasks</Link>
+          <Link to="/projects">
+          <ProjectIcon2 />
+          Projects</Link>
+          <Link to="/tags">
+          <TagIcon2 />
+          Tags</Link>
+          <Link to="/favorites">
+            <FavIcon />
+          Favorites</Link>
+
+          <div className="action-buttons">
+
+            <button
+              type="button"
+              onClick={() => setIsOpen(true)}
+              className="tag-filter create-button"
+              >
+              <PlusIcon />
+              New task
+            </button>
+            <button onClick={() => setOpenConfirmDb(true)} className="import-btn">
+              Import db
+            </button>
+            </div>
         </div>
       </div>
 

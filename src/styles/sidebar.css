@@ -4,6 +4,8 @@
 }
 
 .logo-img {
+    margin-left: auto;
+    margin-right: auto;
     width: 80px;
     height: 80px;
     transition: all 0.3s;
@@ -13,32 +15,66 @@
     transform: scale(1.10) rotate(-5deg);
 }
 
+.menu-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.menu-title button {
+    color: var(--gray-dark);
+}
+
+.menu-title h3 {
+    font-size: var(--font-xl);
+    color: var(--gray-dark3);
+    font-weight: 600;
+}
+
 .links {
-    margin-top: 3rem;
+    margin-top: 1rem;
     display: grid;
-    gap: 2rem;
+    gap: 8px;
 }
 
 .links a {
-    font-weight: bold;
-    color: var(--black);
-    text-transform: uppercase;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: var(--gray-dark3);
+    /* text-transform: uppercase; */
     letter-spacing: .1rem;
-    font-size: var(--font-lg);
-    text-align: center;
+    font-size: var(--font-md);
     transition: all .3s;
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+.links a svg {
+    color: #7c7c7c;
 }
 
 .links a:hover {
-    color: var(--primary-color);
+    background-color: var(--gray-dark2);
     text-decoration: underline;
     transform: scale(1.05);
 }
 
+.links .action-buttons {
+    margin-top: 12px;
+    display: grid;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-dark3);
+}
+
 .import-btn {
-    background: var(--second-color-light);
-    color: var(--second-color);
-    border: 1px solid var(--second-color);
+    border: 1px solid transparent;
+    background-color: var(--gray-dark2);
     border-radius: var(--button-radious);
     padding: .2rem .5rem;
     opacity: 50%;
@@ -47,30 +83,32 @@
 
 .import-btn:hover {
     opacity: 100%;
+    border: 1px solid var(--gray-dark3);
 }
 
 .links .create-button {
-    background: var(--second-color-light);
-    color: var(--second-color);
-    border: 1px solid var(--second-color);
+    background-color: var(--second-color-light);
+    border: 1px solid transparent;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 0.5rem;
     padding-left: 1rem;
     transition: all 0.3s;
 }
 
 .links .create-button:hover {
-    background: #d7ebff;
     color: var(--second-color);
+    border: 1px solid var(--gray-dark3);
 }
 
 .credits {
-    color: var(--gray-dark2);
+    color: var(--gray-dark);
     font-size: var(--font-sm);
     text-align: center;
     display: grid;
     margin-top: 2rem;
+    font-style: italic;
 }
 
 .credits a {

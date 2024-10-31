@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import SearchBox from './SearchBox'
 import HomeIcon from '../assets/HomeIcon'
 import ProjectIcon from '../assets/ProjectIcon'
 import TagIcon from '../assets/TagIcon'
@@ -25,11 +26,10 @@ const Navbar = () => {
           <h1 className='nav-title'>{locations[pathname][0]}</h1>
         </div>
 
-        <input 
-        className='nav-input'
-        type="text" 
-        placeholder='Search todos...'
-        />
+        {/* <div className='search-container'> */}
+          <SearchBox />
+        {/* </div> */}
+
 
         <div className='nav-user'>
             <img src={DefaultProfile} alt="" />

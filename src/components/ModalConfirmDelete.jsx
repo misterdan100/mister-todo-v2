@@ -65,7 +65,7 @@ function ModalConfirmDelete() {
                     as="h3"
                     className="text-lg leading-6 font-bold text-gray-900"
                   >
-                    {`Delete ${selectTask.name} task?`}
+                    {`Delete "${selectTask.name}" task?`}
                   </Dialog.Title>
 
                   <div className="mt-2">

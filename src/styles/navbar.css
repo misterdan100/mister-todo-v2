@@ -39,17 +39,12 @@
 }
 
 .navbar-container .nav-title {
-    color: var(--gray-dark);
-    font-weight: bold;
+    color: var(--black2);
+    font-weight: 600;
     transition: all 0.5s;
     font-size: var(--font-xxl);
     text-transform: uppercase;
-    color: var(--black-color);
     cursor: default;
-}
-
-.navbar-container .nav-title:hover {
-    color: var(--primary-color);
 }
 
 .nav-input {
@@ -64,8 +59,8 @@
 }
 
 .nav-input:hover, .nav-input:focus {
-    box-shadow: var(--button-shadow);
-
+    /* box-shadow: var(--button-shadow); */
+    color: var(--gray-dark);
 }
 
 .nav-input:focus {

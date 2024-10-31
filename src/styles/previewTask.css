@@ -11,7 +11,7 @@
 
 
 .preview-task:hover {
-    box-shadow: var(--panel-shadow);
+    /* box-shadow: var(--panel-shadow); */
     border: 1px solid var(--second-color);
     transform: scale(1.01);
 }
@@ -53,8 +53,9 @@
 }
 
 .preview-task .title-task {
-    font-size: var(--font-lg);
-    color: var(--black);
+    font-size: var(--font-md);
+    color: var(--gray-dark3);
+    cursor: pointer;
 }
 
 .preview-task .title-task span svg {
@@ -103,30 +104,31 @@
 }
 
 .preview-task button {
-    /* font-weight: bold; */
-    border: 1px solid var(--orange-color);
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid transparent;
     background: var(--orange-color-light);
     border-radius: var(--button-radious);
     padding: .3rem 1rem;
     /* text-transform: uppercase; */
     cursor: pointer;
-    color: var(--black);
+    color: var(--gray-dark3);
     transition: all .3s;
 }
 
 .preview-task button:hover {
-    box-shadow: var(--button-shadow);
+    /* box-shadow: var(--button-shadow); */
     background: #ffeeb1;
 }
 
 .preview-task button.delete-button {
-    border: 1px solid var(--red-color);
+    border: 1px solid transparent;
     background: var(--red-color-light);
-    color: var(--red-color);
+    color: var(--gray-dark3);
 }
 
 .preview-task button.delete-button:hover {
-    box-shadow: var(--button-shadow);
+    /* box-shadow: var(--button-shadow); */
     background: #fabddd;
 }
 

@@ -1,0 +1,102 @@
+.search-container {
+    position: relative;
+    width: 320px;
+    height: 40px;
+}
+
+.search-container .nav-input {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    border: none;
+    background-color: #fff;
+    padding: 12px 32px;
+    font-size: var(--font-md); 
+    color: #000000;
+    border-radius: 24px;
+    text-align: center;
+    transition: all 0.5s;
+    border: 1px solid var(--gray-dark2);
+}
+
+.search-container .nav-input:hover, .nav-input:focus {
+    color: var(--gray-dark3);
+
+}
+
+.search-container .nav-input:focus {
+    outline: none;
+}
+
+.search-container .items-container {
+    position: absolute;
+    z-index: 1;
+    max-height: 500px;
+    width: 100%;
+    overflow-y: auto;
+    background-color: rgba(215, 215, 215, 0.2);
+    backdrop-filter: blur(5px);
+    /* box-shadow: var(--button-shadow); */
+    margin-top: 20.8px;
+    padding: 33.6px .4rem .8rem;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    transition: all 0.3s;
+}
+
+.search-container .items-container.hidden {
+    display: none;
+}
+
+.search-container .item-container {
+    padding: .2rem .8rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: .3rem;
+    transition: all 0.3s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-container .item-container:hover {
+    background-color: rgba(184, 184, 184, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.search-container .item-container .edit-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-container .item-container .edit-container svg {
+    width: 18px;
+    height: 18px;
+    color: var(--gray-dark3);
+}
+
+.search-container .item-container .edit-container svg:hover {
+    color: var(--black2);
+}
+
+
+.search-container .item-container .icon {
+    color: var(--gray-dark);
+}
+
+.search-container .item-container .icon.icon-done {
+    color: var(--green-color);
+}
+
+.search-container .item-container .icon.icon-progress {
+    color: var(--second-color);
+}
+
+.search-container .item-container .item-title {
+    color: var(--gray-dark3);
+    font-weight: 400;
+    font-size: var(--font-sm);
+}

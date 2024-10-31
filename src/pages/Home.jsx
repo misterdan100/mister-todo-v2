@@ -8,6 +8,8 @@ import '../styles/home.css'
 
 const Home = () => {
   const { username, setUsername, tasks } = useTasks()
+
+  // States for circle
   const [totalTasks, setTotalTasks] = useState(0)
   const [completedTasks, setCompletedTasks] = useState(0)
   const [percentage, setPercentage] = useState(0)
@@ -15,6 +17,7 @@ const Home = () => {
   const [advice, setAdvice] = useState('')
 
   useEffect(() => {
+    // Calculate values for circle graphic
     const updateRating = () => {
       setTotalTasks(tasks.length)
       let total = tasks.reduce((total, current) => {
@@ -91,6 +94,7 @@ const Home = () => {
             </p>
           </div>
         </div>
+        
       </div>
 
       <div className="tasks-section">

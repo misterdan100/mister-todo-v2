@@ -19,6 +19,11 @@ const TasksProvider = ({children}) => {
   const [filteredTasks, setFilteredTasks] = useState([])
   const [editing, setEditing] = useState(false)
 
+  // Search States
+  const [searchVisibility, setSearchVisibility] = useState(false)
+  const [inputSearch, setInputSearch] = useState('')
+  const [searchResult, setSearchResult] = useState([])
+
   useEffect(() => {
     const getData = async () => {
         try {
@@ -166,6 +171,13 @@ const TasksProvider = ({children}) => {
       setFilter(tempFilter)
     }
   }
+
+  const handleSearchTasks = inputText => {
+    setInputSearch(() => inputText)
+    const filter = tasks.filter( task => task.name.toLowerCase().includes(inputText.toLowerCase()))
+    setSearchResult(filter)
+    setSearchVisibility(true)
+  }
   
   return (
     <TasksContext.Provider 
@@ -200,7 +212,14 @@ const TasksProvider = ({children}) => {
             openConfirmDb,
             setOpenConfirmDb,
             openConfirmDelete,
-            setOpenConfirmDelete
+            setOpenConfirmDelete,
+            searchVisibility,
+            setSearchVisibility,
+            inputSearch,
+            setInputSearch,
+            searchResult,
+            setSearchResult,
+            handleSearchTasks
         }}
     >
         {children}
