@@ -17,52 +17,69 @@
 
 .task-filters .create-button {
     height: 35px;
-}
-
-.tasks-container .filter-buttons {
-    display: flex;
-    justify-content: end;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.tag-filter {
-    padding: .3rem 1.5rem;
-    background: var(--white);
-    border-radius: var(--button-radious);
-    border: 1px solid var(--gray-dark);
-    /* font-weight: bold; */
-    color: var(--gray-dark);
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.tag-filter:hover {
-    color: var(--black);
-    /* box-shadow: var(--button-shadow); */
-}
-
-.tasks-container .create-button {
+    width: 100%;
     background: var(--second-color);
     color: var(--white);
     border: 1px solid transparent;
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding-left: 1rem;
     transition: all 0.3s;
 }
 
+.tasks-container .filter-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    background-color: var(--gray-dark2);
+    border-radius: 10px;
+    padding: 4px 5px;
+}
+
+.tasks-container .filter-buttons svg {
+    color: var(--gray-dark);
+}
+
+.tag-filter {
+    padding: 2px 16px;
+    background: var(--white);
+    border-radius: var(--button-radious);
+    color: var(--gray-dark3);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tag-filter:hover {
+    background-color: var(--gray-dark2);
+    /* box-shadow: var(--button-shadow); */
+}
+
 .tasks-container .create-button:hover {
+    color: var(--gray-dark);
     transform: scale(1.05);
 }
 
 .tag-filter.selected {
-    background: var(--gray-light);
-    font-weight: bold;
+    background: #dddddd;
+    /* font-weight: bold; */
 }
 
 .preview-task-container {
     display: flex;
     flex-direction: column;
     gap: .5rem;
+}
+
+@media (min-width: 640px) {
+    .tasks-container .filter-buttons {
+        justify-content: end;
+    }
+
+    .task-filters .create-button {
+        width: fit-content;
+    }
 }

@@ -60,15 +60,16 @@ const Home = () => {
     <div className="home-container home">
       <div className="summary-section">
         <div className="summary-circle">
-          <CircularProgressbar 
-            value={percentage}
-            text={`${percentage}% completed`}
-            styles={buildStyles({
-              textSize: '10px',
-              pathColor: colorCircle,
-              textColor: colorCircle,
-            })}
-          />
+            <CircularProgressbar 
+              value={percentage}
+              text={`${percentage}% completed`}
+              styles={buildStyles({
+                textSize: '10px',
+                pathColor: colorCircle,
+                textColor: colorCircle,
+              })}
+              />
+
         </div>
 
         <div className="summary-data">
@@ -81,9 +82,9 @@ const Home = () => {
           />
 
           <div className="summary-items">
-            <p>{totalTasks} Tasks in Total</p>
-            <p>{completedTasks} Completed Tasks</p>
-            <p>{totalTasks - completedTasks} Tasks waiting for you</p>
+            <p><span className='number'>{totalTasks}</span> Tasks in Total</p>
+            <p><span className='number'>{completedTasks}</span> Completed Tasks</p>
+            <p><span className='number'>{totalTasks - completedTasks}</span> Tasks waiting for you</p>
           </div>
 
           <div className="quotes-section">

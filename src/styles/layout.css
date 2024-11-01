@@ -1,9 +1,9 @@
 .main-container {
     display: flex;
+    flex-direction: column;
     width: 100vw;
-    height: 100vh;
     background-color: #FAFAFA;
-    padding: 24px;
+    padding: 16px;
 }
 
 .sidebar-container {
@@ -11,19 +11,46 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 330px;
-    height: 100%;
-    z-index: 1;
+    width: 100%;
     padding: 24px;
-    overflow-y: auto;
     border-radius: 16px;
-    /* padding-left: 3rem; */
+}
+
+.miniSidebar-container {
+    width: auto;
+    height: auto;
+    padding: 24px 0px;
+    margin-top: 18px;
+    background-color: transparent;
+    align-items: center;
+    justify-content: start;
+    gap: 24px;
 }
 
 .main-div {
-    height: 100%;
     width: 100%;
-    flex: 1 1 0;
-    padding: 1.5rem 3rem .5rem;
+    padding: 1.5rem .5rem;
     overflow: auto;
+}
+
+@media (min-width: 640px) {
+    .main-container {
+        padding: 24px;
+        flex-direction: row;
+        height: 100vh;
+    }
+
+    .sidebar-container {
+        width: 330px;
+        z-index: 1;
+    }
+
+    .miniSidebar-container {
+        width: fit-content;
+    }
+
+    .main-div {
+        flex: 1 1 0;
+        padding: 1.5rem 3rem .5rem;
+    }
 }

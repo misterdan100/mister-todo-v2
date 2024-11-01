@@ -18,6 +18,7 @@ const TasksProvider = ({children}) => {
   const [filter, setFilter] = useState('')
   const [filteredTasks, setFilteredTasks] = useState([])
   const [editing, setEditing] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(true)
 
   // Search States
   const [searchVisibility, setSearchVisibility] = useState(false)
@@ -219,7 +220,9 @@ const TasksProvider = ({children}) => {
             setInputSearch,
             searchResult,
             setSearchResult,
-            handleSearchTasks
+            handleSearchTasks,
+            showSidebar,
+            setShowSidebar
         }}
     >
         {children}

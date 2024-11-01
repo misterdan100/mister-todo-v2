@@ -35,17 +35,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--gray-light);
-    height: 25px;
-    padding: 2px 10px 2px 6px;
-    border-radius: 6px;
-    border: 1px solid var(--gray-dark2);
-    color: var(--gray-dark);
-    /* transition: all 0.3s; */
+    gap: 4px;
+    padding: 2px 12px;
+    background: var(--gray-dark2);
+    border-radius: var(--button-radious);
+    color: var(--gray-dark3);
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .projectCard-container .projectCard-head .add-continer:hover {
-    border: 1px solid var(--second-color);
+    /* border: 1px solid var(--second-color); */
+    background-color: var(--gray-light2);
     cursor: pointer;
 }
 

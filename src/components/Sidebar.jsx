@@ -11,7 +11,7 @@ import { TagIcon2 } from "../assets/TagIcon2";
 import { FavIcon } from "../assets/FavIcon";
 
 const Sidebar = () => {
-  const { setIsOpen, setOpenConfirmDb } = useTasks();
+  const { setIsOpen, setOpenConfirmDb, setShowSidebar } = useTasks();
 
   return (
     <>
@@ -27,7 +27,9 @@ const Sidebar = () => {
 
         <div className="menu-title">
           <h3>Menu</h3>
-          <button >
+          <button 
+            onClick={() => setShowSidebar(prev => !prev)}
+          >
             <MenuIcon />
           </button>
         </div>

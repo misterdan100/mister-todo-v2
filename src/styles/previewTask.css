@@ -100,7 +100,8 @@
 
 .preview-task .buttons {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: .5rem;
 }
 
 .preview-task button {
@@ -133,3 +134,11 @@
 }
 
 /* FIX OTHER BUTTON STYLESS */
+
+@media (min-width: 640px) {
+    .preview-task .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+}

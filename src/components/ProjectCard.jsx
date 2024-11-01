@@ -23,7 +23,7 @@ const ProjectCard = ({project}) => {
             className="add-continer"
           >
             <PlusIcon />
-            <p>add</p>
+            <p>Add</p>
           </button>
         )}
       </div>

@@ -7,14 +7,23 @@ import ModalConfirmData from '../components/ModalConfirmData'
 import ModalConfirmDelete from '../components/ModalConfirmDelete'
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.min.css'
+import MiniSidebar from "../components/MiniSidebar"
+import useTasks from "../hooks/useTasks"
+
 import '../styles/layout.css'
 
 const Layout = () => {
+  const { showSidebar } = useTasks();
+
   return (
     <>
       <div className="main-container">
-        <aside className="sidebar-container">
-          <Sidebar/>
+        <aside
+          className={`sidebar-container ${
+            !showSidebar && "miniSidebar-container"
+          }`}
+        >
+          {showSidebar ? <Sidebar /> : <MiniSidebar />}
         </aside>
 
         <div className="main-div">
@@ -24,12 +33,11 @@ const Layout = () => {
             <Outlet />
           </div>
         </div>
-
       </div>
       <ModalTask />
       <ModalConfirmData />
       <ModalConfirmDelete />
-      <ToastContainer 
+      <ToastContainer
         position="bottom-right"
         autoClose={4000}
         hideProgressBar={false}
@@ -41,9 +49,8 @@ const Layout = () => {
         pauseOnHover
         theme="light"
       />
-
     </>
-  )
+  );
 }
 
 export default Layout

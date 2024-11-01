@@ -2,6 +2,7 @@ import { useState } from "react";
 import useTasks from "../hooks/useTasks";
 import PreviewTask from "../components/PreviewTask";
 import PlusIcon from "../assets/PlusIcon";
+import { FilterIcon } from '../assets/FilterIcon'
 import "../styles/task.css";
 
 const Tasks = () => {
@@ -16,6 +17,7 @@ const Tasks = () => {
         </p>
 
         <div className="filter-buttons">
+          <FilterIcon />
           <p
             onClick={() => handleFilter("name")}
             className={`tag-filter ${filter === 'name' && 'selected'}`}
